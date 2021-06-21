@@ -25,7 +25,7 @@ let game = new Phaser.Game(config);
 let successfulDropoff;
 
 //var de la flèche
-var nextArrow;
+var restartArrow;
 
 //vars de son
 var holdSound;
@@ -56,20 +56,21 @@ function preload() {
     this.load.image('legL', './assets/gLegL-01.png');
     this.load.image('legR', './assets/gLegR-01.png');
     
-     //---arrow next---
-    this.load.image('nextArrow', './assets/blue-arrow.png');
+     //---arrow restart---
+    this.load.image('restartArrow', './assets/blue-restart.png');
     
     //---audio files---
     this.load.audio('hold', './assets/hold.wav');
     this.load.audio('wrong', './assets/wrong.wav');
     this.load.audio('correct', './assets/correct.wav');
-    this.load.audio('finish', './assets/finish.wav');
+    this.load.audio('finish', './assets/congratulations.wav');
     
     //---star at the end---
-    this.load.image('star', './assets/blue-star.png');
+    this.load.image('star', './assets/fireworks.png');
     
     //---background pattern---
     this.load.image('gameBg', './assets/feuilledroite-01-01.png');
+    
 
 }
 
@@ -82,7 +83,7 @@ function create() {
     image.setScale(0.45);
     
     //---star---
-    starScale = 0.1;
+    starScale = 0.2;
     star = this.add.image(90,530, 'star');
     star.setScale(starScale);
     star.setVisible(false);
@@ -98,9 +99,9 @@ function create() {
     successfulDropoff = 0;
     
     //---next arrow----
-    nextArrow = this.add.image(300, 550, 'nextArrow');
-    nextArrow.setScale(0.7);
-    nextArrow.setVisible(false);
+    restartArrow = this.add.image(300, 550, 'restartArrow');
+    restartArrow.setScale(0.15);
+    restartArrow.setVisible(false);
     
     //----les membres-----
     var head = this.add.image(260, 528, 'head', Phaser.Math.RND.pick(frames)).setInteractive();
@@ -220,14 +221,14 @@ else{
         
         if(successfulDropoff === 6){
             console.log("well done!!!!");
-            nextArrow.setVisible(true);
-            nextArrow.setInteractive();
+            restartArrow.setVisible(true);
+            restartArrow.setInteractive();
             finishSound.play();
             star.setVisible(true);
             gameBg.setVisible(true);
     }
         
-        nextArrow.on('pointerdown', onClick);
+        restartArrow.on('pointerdown', onClick);
 
     });
     
@@ -239,8 +240,8 @@ function update() {
     if(successfulDropoff === 6){
          starScale += 0.001;
         star.setScale(starScale);
-        if (starScale > 0.2){
-            starScale = 0.2;
+        if (starScale > 0.3){
+            starScale = 0.3;
         } }
 
 }
