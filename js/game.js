@@ -57,7 +57,7 @@ function preload() {
     this.load.image('legR', './assets/gLegR-01.png');
     
      //---arrow restart---
-    this.load.image('restartArrow', './assets/blue-restart.png');
+    this.load.image('restartArrow', './assets/b-refresh.png');
     
     //---audio files---
     this.load.audio('hold', './assets/hold.wav');
