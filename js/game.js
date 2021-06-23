@@ -46,7 +46,7 @@ function init() {
 
 function preload() {
     //---personnage en transparence---
-    this.load.image('background', './assets/Gepeto.png');
+    this.load.image('background', './assets/fox-01.png');
     
     //----membres----
     this.load.image('head', './assets/gHead-01.png');
@@ -79,8 +79,8 @@ function create() {
     gameBg.setVisible(false);
     
     var image = this.add.image(200, 250, 'background');
-    image.alpha = 0.3;
-    image.setScale(0.45);
+//    image.alpha = 0.3;
+//    image.setScale(0.45);
     
     //---star---
     starScale = 0.2;
